@@ -1,6 +1,7 @@
-import React, {cloneElement} from 'react';
+import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {HomeStackNavigator} from './HomeStackNavigator';
 
 const Home = () => {
   return (
@@ -16,11 +17,15 @@ const Home = () => {
     </View>
   );
 };
-const Stack = createStackNavigator();
+
+// <Stack.Screen name="Home" component={Home} />
+
+const Drawer = createDrawerNavigator();
+
 export const RootNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-    </Stack.Navigator>
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeStackNavigator} />
+    </Drawer.Navigator>
   );
 };
