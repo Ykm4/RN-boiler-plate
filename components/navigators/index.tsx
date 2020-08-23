@@ -1,31 +1,23 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {HomeStackNavigator} from './HomeStackNavigator';
-
-const Home = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <SafeAreaView>
-        <Text style={{color: 'red'}}>home screen</Text>
-      </SafeAreaView>
-    </View>
-  );
-};
-
-// <Stack.Screen name="Home" component={Home} />
+import {MainTabNavigator} from './MainTabNavigator';
+import {CustomDrawerContent} from '../screens/DrawerContent/DrawerContent';
+import {SupportScreen} from '../screens/SupportScreen';
+import SettingScreen from '../screens/SettingScreen';
+import BookmarkScreen from '../screens/BookmarkScreen';
 
 const Drawer = createDrawerNavigator();
 
 export const RootNavigator = () => {
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={HomeStackNavigator} />
+    // Drawer.Navigatorが受け取るpropsをDrawerContentにそのまま流している
+    // drawerContentにはReact elementを渡す事でdrawerの見た目をカスタマイズ出来る
+    <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawerContent {...props} />}>
+      <Drawer.Screen name="HomeDrawer" component={MainTabNavigator} />
+      <Drawer.Screen name="Support" component={SupportScreen} />
+      <Drawer.Screen name="Setting" component={SettingScreen} />
+      <Drawer.Screen name="Bookmark" component={BookmarkScreen} />
     </Drawer.Navigator>
   );
 };
