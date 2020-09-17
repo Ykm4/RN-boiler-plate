@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import {AuthContext} from '../Context';
 
 type Props = {};
 
@@ -38,6 +39,8 @@ export const SignInScreen = ({navigation}) => {
       }));
     }
   };
+
+  const {signIn} = useContext(AuthContext);
 
   const handlePasswordChange = (val) => {
     setData({
@@ -94,7 +97,7 @@ export const SignInScreen = ({navigation}) => {
         </View>
 
         <View style={styles.button}>
-          <TouchableOpacity style={styles.signIn} onPress={() => {}}>
+          <TouchableOpacity style={styles.signIn} onPress={() => signIn()}>
             <LinearGradient
               colors={['#08d4c4', '#01ab9d']}
               style={styles.signIn}>

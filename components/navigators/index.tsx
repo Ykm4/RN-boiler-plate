@@ -9,17 +9,22 @@ import {RootStackNavigator} from './RootStackNavigator';
 
 const Drawer = createDrawerNavigator();
 
-export const RootNavigator = () => {
+export const RootNavigator = ({userToken}) => {
   return (
     // Drawer.Navigatorが受け取るpropsをDrawerContentにそのまま流している
     // drawerContentにはReact elementを渡す事でdrawerの見た目をカスタマイズ出来る
-    // <Drawer.Navigator
-    //   drawerContent={(props) => <CustomDrawerContent {...props} />}>
-    //   <Drawer.Screen name="HomeDrawer" component={MainTabNavigator} />
-    //   <Drawer.Screen name="Support" component={SupportScreen} />
-    //   <Drawer.Screen name="Setting" component={SettingScreen} />
-    //   <Drawer.Screen name="Bookmark" component={BookmarkScreen} />
-    // </Drawer.Navigator>
-    <RootStackNavigator />
+    <>
+      {userToken !== null ? (
+        <Drawer.Navigator
+          drawerContent={(props) => <CustomDrawerContent {...props} />}>
+          <Drawer.Screen name="HomeDrawer" component={MainTabNavigator} />
+          <Drawer.Screen name="Support" component={SupportScreen} />
+          <Drawer.Screen name="Setting" component={SettingScreen} />
+          <Drawer.Screen name="Bookmark" component={BookmarkScreen} />
+        </Drawer.Navigator>
+      ) : (
+        <RootStackNavigator />
+      )}
+    </>
   );
 };
