@@ -1,7 +1,7 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {HomeStackNavigator} from './HomeStackNavigator';
+import { SafeAreaView, Text, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { HomeStackNavigator } from './HomeStackNavigator';
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
         alignItems: 'center',
       }}>
       <SafeAreaView>
-        <Text style={{color: 'red'}}>home screen</Text>
+        <Text style={{ color: 'red' }}>home screen</Text>
       </SafeAreaView>
     </View>
   );

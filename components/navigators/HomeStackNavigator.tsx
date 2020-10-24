@@ -1,13 +1,13 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type Props = {};
 
 const Stack = createStackNavigator();
 
-export const HomeStackNavigator = ({navigation}) => {
+export const HomeStackNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.root}>
       <SafeAreaView>
@@ -62,7 +62,7 @@ const HomeScreen = ({navigation}) => {
   );
 };
 
-const DetailScreen = ({navigation}) => {
+const DetailScreen = ({ navigation }) => {
   return (
     <View style={styles.root}>
       <SafeAreaView>
