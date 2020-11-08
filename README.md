@@ -1,19 +1,36 @@
-## install React Navigation
+## iOS
+
+npxコマンドでtemplateを作成する前に`node`と`watchman`を入れる必要がある
+
+※ 公式曰くnodeのversionはnodebrewなどで管理した方が良い
 
 ```bash
-yarn add @react-navigation/native
+brew install node
+brew install watchman
 ```
 
-React Navigationに依存するパッケージをinstallする
-これをinstallしなければwarningエラーが出てアプリが動かない
+### React Native Command Line Interface
 
-```
-yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+React Native公式のCLIをグローバル環境にインストールするのはおすすめされていない。
+
+そのため公式では`npx`コマンドを用いて最新バージョンのCLIを使用する事をおすすめしている。
+
+> もしも過去にreact-native-cliパッケージをグローバルにインストールした事があるなら、予期せぬ問題を引き起こす可能性があるので削除した方が良い。
+
+## React Native with TypeScript
+
+公式がtemplate用のコマンドを用意してくれているので下記のコマンドを叩くだけでボイラープレートが作成される。
+
+```bash
+$ npx react-native init MyApp --template react-native-template-typescript
 ```
 
-RN 0.6.0以上のバージョンであればlinkを自動的にしてくれるので`react-native link`コマンドは不要になるが、iosアプリを開発しているのであれば`npx pod-insall ios`が必要になる
+## プロジェクトを立ち上げる
 
-依存パッケージをインストールせずにアプリを立ち上げると下記のエラーが出て画面に何も表示されないことがあるが、`cmd + c`で一度アプリを落として再度`yarn ios`でアプリを立ち上げると解消される
-```
-Module AppRegistry is not a registered callabel module (calling runApplication)
+インストールが完了したら下記コマンドをターミナルに入力する事でシミューレーターが立ち上がる。
+
+```bash
+$ cd poject
+
+$ yarn ios or  npx react-native run-ios
 ```
