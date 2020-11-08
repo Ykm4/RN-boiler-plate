@@ -2,7 +2,7 @@
 
 npxコマンドでtemplateを作成する前に`node`と`watchman`を入れる必要がある
 
-※ 公式曰くnodeのversionはnodebrewなどで管理した方が良い
+※ 公式曰くnodeのversionはnodebrewなどで管理した方が良いみたいだが(nodebrewでの管理方法は割愛)
 
 ```bash
 brew install node
