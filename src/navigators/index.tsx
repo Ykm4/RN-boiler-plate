@@ -1,14 +1,20 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { DrawerNavigator } from './drawer';
+import { Home } from '../components/pages/Home';
+import { TabNavigator } from './TabNavigator';
+import { PAGE_NAME_ROOT } from './const/pagename';
+import { RootStackParamList } from './declaration';
 
-const { Navigator, Screen } = createStackNavigator();
+const RootStack = createStackNavigator<RootStackParamList>();
 
 export const RootNavigator = () => {
   return (
-    // headerModeをnoneにしないとStackNavigatorが持つデフォルトのheaderが一番上にスタックされる
-    <Navigator headerMode="none">
-      <Screen name="Drawer" component={DrawerNavigator} />
-    </Navigator>
+    <RootStack.Navigator headerMode="none">
+      <RootStack.Screen name={PAGE_NAME_ROOT.HOME} component={Home} />
+      <RootStack.Screen
+        name={PAGE_NAME_ROOT.TAB_NEWS}
+        component={TabNavigator}
+      />
+    </RootStack.Navigator>
   );
 };

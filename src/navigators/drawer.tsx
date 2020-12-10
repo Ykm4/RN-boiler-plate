@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeStackNavigator } from './home';
+import { HomeStackNavigator } from './Home';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
