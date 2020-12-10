@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
-import { Article } from '../../../services/news';
+import { ArticleType } from '../../../services/news';
+import { Card } from '../../molecules/Card';
 
 type Props = {};
 
 export function EntertainmentNews({}: Props) {
-  const [newsData, setNewsData] = useState<Article[]>([]);
+  const [newsData, setNewsData] = useState<ArticleType[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   useEffect(() => {
     const fetchEntertainmentNews = () => {
@@ -30,11 +31,7 @@ export function EntertainmentNews({}: Props) {
             <Text>Header</Text>
           </View>
         }
-        renderItem={({ item: News }) => (
-          <View style={{ backgroundColor: 'green' }}>
-            <Text>{News.title}</Text>
-          </View>
-        )}
+        renderItem={({ item }) => <Card article={item} />}
       />
     </View>
   );
@@ -43,6 +40,7 @@ export function EntertainmentNews({}: Props) {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    backgroundColor: '#E5E5E5',
   },
 });
 

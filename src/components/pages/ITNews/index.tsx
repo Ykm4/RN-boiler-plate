@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Button,
-  FlatList,
-  RefreshControl,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { PAGE_NAMES_HOME } from '../../../const';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { HomeStackParamList } from '../../../declarations';

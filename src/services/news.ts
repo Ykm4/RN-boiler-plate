@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export type Article = {
+export type ArticleType = {
   source: {
     id: null | string;
     name: string;
@@ -17,7 +17,7 @@ export type Article = {
 export type Response = {
   status: string;
   totalResults: number;
-  articles: Article[];
+  articles: ArticleType[];
 };
 
 // APIキーはURLに含める方法しかないのか調べる
