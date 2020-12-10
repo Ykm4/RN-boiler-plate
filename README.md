@@ -1,3 +1,5 @@
+**BoilerPlateを利用の場合は`master`ブランチをclone**
+
 ## iOS
 
 - Xcode, Command line tools for Xcode をインストール
