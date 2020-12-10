@@ -31,7 +31,7 @@ export function EntertainmentNews({}: Props) {
             <Text>Header</Text>
           </View>
         }
-        renderItem={({ item }) => <Card article={item} />}
+        renderItem={({ item, index, separators }) => <Card article={item} />}
       />
     </View>
   );
