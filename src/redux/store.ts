@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './modules/app';
 import counterReducer from './modules/counter';
 import newsReducer from './modules/News';
+import gourmetReducer from './modules/Gourmet';
 import {
   TypedUseSelectorHook,
   useDispatch,
@@ -12,6 +13,7 @@ const rootReducer = {
   app: appReducer,
   counter: counterReducer,
   news: newsReducer,
+  gourmet: gourmetReducer,
 };
 
 export const store = configureStore({
