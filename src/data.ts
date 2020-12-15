@@ -128,7 +128,7 @@ export const ITNewsData = [
     urlToImage:
       'https://www.nikkansports.com/baseball/news/img/202012080000760-w500_0.jpg',
     publishedAt: '2020-12-08T10:40:55Z',
-    content: '(C)2020,Nikkan Sports ITNews.\r\nnikkansports.com',
+    content: '(C)2020,Nikkan Sports Gourmet.\r\nnikkansports.com',
   },
   {
     source: { id: null, name: 'Sankei.com' },
@@ -218,7 +218,7 @@ export const ITNewsData = [
       'ORICON NEWSoricon MENewSWebPCJASRAC9009642142Y31015 / 9009642140Y38026 | JRCX000003B14L | e-LicenseID26546\r\nCookie',
   },
   {
-    source: { id: null, name: 'BBC ITNews' },
+    source: { id: null, name: 'BBC Gourmet' },
     author: 'https://www.facebook.com/bbcnews/',
     title:
       'イギリスで新型コロナウイルスのワクチン接種開始 米ファイザー製 - BBCニュース',

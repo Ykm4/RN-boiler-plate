@@ -3,14 +3,15 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 
 type Props = {
   text: string;
-  imageUrl: string;
+  imageUrl: string | null;
 };
 
 export function TextImageBox({ text, imageUrl }: Props) {
+  console.log('render TextImageBox');
   return (
     <View style={styles.root}>
       <View style={styles.figure}>
-        <Image source={{ uri: imageUrl }} style={styles.img} />
+        <Image source={{ uri: imageUrl || '' }} style={styles.img} />
       </View>
       <View style={styles.cardBody}>
         <Text style={styles.cardMessage} numberOfLines={4}>

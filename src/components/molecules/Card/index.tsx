@@ -6,16 +6,18 @@ import { Button } from '../../atoms/Button';
 
 type Props = {
   article: ArticleType;
+  handlePress: () => void;
 };
 
-export function Card({ article }: Props) {
+export function Card({ article, handlePress }: Props) {
+  console.log('render Card');
   return (
     <View style={styles.root}>
       <Text style={styles.title}>{article.title}</Text>
       <Text style={styles.author}>{article.author}</Text>
       <TextImageBox text={article.description} imageUrl={article.urlToImage} />
       <View style={styles.buttonContainer}>
-        <Button />
+        <Button handlePress={handlePress} />
       </View>
     </View>
   );

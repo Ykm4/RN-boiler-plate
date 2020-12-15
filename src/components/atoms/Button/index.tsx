@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-type Props = {};
+type Props = {
+  handlePress: () => void;
+};
 
-export function Button({}: Props) {
-  const handlePress = () => {};
+export function Button({ handlePress }: Props) {
   return (
     <View style={styles.root}>
       <TouchableOpacity onPress={handlePress}>
