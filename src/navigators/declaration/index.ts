@@ -4,6 +4,6 @@ export type RootStackParamList = {
 };
 
 export type NewsTabParamList = {
-  IT_NEWS: undefined;
+  GOURMET: undefined;
   ENTERTAINMENT_NEWS: undefined;
 };

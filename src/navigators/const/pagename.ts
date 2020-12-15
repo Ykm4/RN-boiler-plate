@@ -4,6 +4,6 @@ export const PAGE_NAME_ROOT = {
 } as const;
 
 export const PAGE_NAME_TAB = {
-  IT_NEWS: 'IT_NEWS',
+  GOURMET: 'GOURMET',
   ENTERTAINMENT_NEWS: 'ENTERTAINMENT_NEWS',
 } as const;

@@ -1,17 +1,17 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { ITNews } from '../components/pages/ITNews';
 import { PAGE_NAME_TAB } from './const/pagename';
 import { NewsTabParamList } from './declaration';
 import { EntertainmentNews } from '../components/pages/EntertainmentNews';
+import { Gourmet } from '../components/pages/Gourmet';
 
 const Tab = createMaterialTopTabNavigator<NewsTabParamList>();
 
 export function TabNavigator() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name={PAGE_NAME_TAB.IT_NEWS} component={ITNews} />
+    <Tab.Navigator lazy={true}>
+      <Tab.Screen name={PAGE_NAME_TAB.GOURMET} component={Gourmet} />
       <Tab.Screen
         name={PAGE_NAME_TAB.ENTERTAINMENT_NEWS}
         component={EntertainmentNews}
