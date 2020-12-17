@@ -3,18 +3,21 @@ import { StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { PAGE_NAME_TAB } from './const/pagename';
 import { NewsTabParamList } from './declaration';
-import { EntertainmentNews } from '../components/pages/EntertainmentNews';
-import { Gourmet } from '../components/pages/Gourmet';
+import { RestaurantWithPrivateRoom } from '../components/pages/RestaurantWithPrivateRoom';
+import { RandomRestaurant } from '../components/pages/RandomRestaurant';
 
 const Tab = createMaterialTopTabNavigator<NewsTabParamList>();
 
 export function TabNavigator() {
   return (
     <Tab.Navigator lazy={true}>
-      <Tab.Screen name={PAGE_NAME_TAB.GOURMET} component={Gourmet} />
       <Tab.Screen
-        name={PAGE_NAME_TAB.ENTERTAINMENT_NEWS}
-        component={EntertainmentNews}
+        name={PAGE_NAME_TAB.RANDOM_RESTAURANT}
+        component={RandomRestaurant}
+      />
+      <Tab.Screen
+        name={PAGE_NAME_TAB.RESTAURANT_WITH_PRIVATE_ROOM}
+        component={RestaurantWithPrivateRoom}
       />
     </Tab.Navigator>
   );

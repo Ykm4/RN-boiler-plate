@@ -1,9 +1,9 @@
 export type RootStackParamList = {
   HOME: undefined;
-  TAB_NEWS: undefined;
+  TAB_RESTAURANT: undefined;
 };
 
 export type NewsTabParamList = {
-  GOURMET: undefined;
-  ENTERTAINMENT_NEWS: undefined;
+  RANDOM_RESTAURANT: undefined;
+  RESTAURANT_WITH_PRIVATE_ROOM: undefined;
 };

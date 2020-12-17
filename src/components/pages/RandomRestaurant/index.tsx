@@ -5,8 +5,14 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { HomeStackParamList } from '../../../declarations';
 import { AppDispatch, RootState, useSelector } from '../../../redux/store';
 import { useDispatch } from 'react-redux';
-import { fetchGourmet } from '../../../redux/modules/Gourmet/thunk';
+import {
+  fetchGourmet,
+  getQueryByRandom,
+  randomList,
+} from '../../../redux/modules/Gourmet/thunk';
 import { ShopCard, ShopCardType } from '../../organisms/ShopCard';
+import { useRefresh } from './hooks/useRefresh';
+import { gourmetSelector } from '../../../redux/selectors/gourmet';
 
 type Props = {
   navigation: StackNavigationProp<
@@ -15,39 +21,33 @@ type Props = {
   >;
 };
 
-export const Gourmet = ({ navigation }: Props) => {
+export const RandomShop = ({ navigation }: Props) => {
   const dispatch: AppDispatch = useDispatch();
-  const [refreshing, setRefreshing] = useState(false);
+  const { refreshing, onRefresh } = useRefresh();
   useEffect(() => {
-    // const promise = dispatch(fetchGourmet());
-    // return () => {
-    //   promise.abort();
-    // };
+    const randomQuery = getQueryByRandom(randomList);
+    const promise = dispatch(fetchGourmet(randomQuery));
+    return () => {
+      promise.abort();
+    };
   }, []);
 
-  const handlePress = () => {
-    console.log('pressed button');
-  };
-  const onRefresh = useCallback(async () => {
-    setRefreshing(true);
-    // await dispatch(addShops());
-    setRefreshing(false);
-  }, []);
-
-  // TODO: FlatListに渡す配列データはカード表示用にselectorで絞る
-  // TODO: 詳細ページを作るならStoreからデータを取得してSelectorで絞る
+  const shops = useSelector(gourmetSelector);
   // TODO: useSelector vs reselectのパフォーマンスの挙動などをみてみたい
-  const shops: ShopCardType[] = useSelector((state) =>
-    state.gourmet.shop.map(({ name, address, charter, photo }) => {
-      const { l } = photo.mobile;
-      return { name, address, charter, l };
-    }),
-  );
+  // const shops: ShopCardType[] = useSelector((state) =>
+  //   state.gourmet.shop.map(({ name, address, charter, photo }) => {
+  //     const { l } = photo.mobile;
+  //     return { name, address, charter, l };
+  //   }),
+  // );
 
   const keyExtractor = useCallback((item, index) => `${index}`, []);
   const renderItem = useCallback(({ item }: { item: ShopCardType }) => {
     return <ShopCard cardInfo={item} handlePress={handlePress} />;
   }, []);
+  const handlePress = () => {
+    console.log('pressed button');
+  };
 
   return (
     <View style={styles.root}>
@@ -58,10 +58,7 @@ export const Gourmet = ({ navigation }: Props) => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         renderItem={renderItem}
-        onEndReached={(info) => {
-          console.log(info);
-          console.log('onEndReached');
-        }}
+        onEndReached={(info) => {}}
         onEndReachedThreshold={0.5}
       />
     </View>

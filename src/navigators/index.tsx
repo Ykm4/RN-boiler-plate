@@ -12,7 +12,7 @@ export const RootNavigator = () => {
     <RootStack.Navigator headerMode="none">
       <RootStack.Screen name={PAGE_NAME_ROOT.HOME} component={Home} />
       <RootStack.Screen
-        name={PAGE_NAME_ROOT.TAB_NEWS}
+        name={PAGE_NAME_ROOT.TAB_RESTAURANT}
         component={TabNavigator}
       />
     </RootStack.Navigator>
