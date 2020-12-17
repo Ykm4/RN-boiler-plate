@@ -1,13 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GourmetState } from './declaration';
-import { fetchGourmet } from './thunk';
+import { GourmetResultType, GourmetState } from './declaration';
+import { fetchRestaurant, fetchShopWithPrivateRoom } from './thunk';
 
 export const initialState: GourmetState = {
-  api_version: '',
-  results_available: null,
-  results_returned: '',
-  results_start: null,
-  shop: [],
+  randomShop: [],
+  restaurantWithPrivateRoom: [],
 };
 
 const slice = createSlice({
@@ -16,8 +13,16 @@ const slice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(
-      fetchGourmet.fulfilled,
-      (state, { payload }: PayloadAction<GourmetState>) => payload,
+      fetchRestaurant.fulfilled,
+      (state, { payload }: PayloadAction<GourmetResultType>) => {
+        state.randomShop = payload.shop;
+      },
+    );
+    builder.addCase(
+      fetchShopWithPrivateRoom.fulfilled,
+      (state, { payload }: PayloadAction<GourmetResultType>) => {
+        state.restaurantWithPrivateRoom = payload.shop;
+      },
     );
   },
 });

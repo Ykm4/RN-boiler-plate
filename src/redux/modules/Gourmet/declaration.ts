@@ -12,14 +12,19 @@ export type GourmetResponse = {
 };
 
 /**
- * @description Gourmet initialState
+ * @description RandomRestaurant initialState
  */
-export type GourmetState = {
+export type GourmetResultType = {
   api_version: string;
   results_available: number | null;
   results_returned: string;
   results_start: number | null;
   shop: ShopType[];
+};
+
+export type GourmetState = {
+  randomShop: ShopType[];
+  restaurantWithPrivateRoom: ShopType[];
 };
 
 /**

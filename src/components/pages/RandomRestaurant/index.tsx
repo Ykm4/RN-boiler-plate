@@ -6,7 +6,7 @@ import { HomeStackParamList } from '../../../declarations';
 import { AppDispatch, RootState, useSelector } from '../../../redux/store';
 import { useDispatch } from 'react-redux';
 import {
-  fetchGourmet,
+  fetchRestaurant,
   getQueryByRandom,
   randomList,
 } from '../../../redux/modules/Gourmet/thunk';
@@ -21,12 +21,12 @@ type Props = {
   >;
 };
 
-export const RandomShop = ({ navigation }: Props) => {
+export const RandomRestaurant = ({ navigation }: Props) => {
   const dispatch: AppDispatch = useDispatch();
   const { refreshing, onRefresh } = useRefresh();
   useEffect(() => {
     const randomQuery = getQueryByRandom(randomList);
-    const promise = dispatch(fetchGourmet(randomQuery));
+    const promise = dispatch(fetchRestaurant(randomQuery));
     return () => {
       promise.abort();
     };
