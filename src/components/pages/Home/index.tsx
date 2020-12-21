@@ -26,7 +26,7 @@ export function Home({ navigation }: Props) {
     <SafeAreaView style={styles.root}>
       <Text>home</Text>
       <TouchableHighlight
-        onPress={() => navigation.navigate(PAGE_NAME_ROOT.TAB_NEWS)}>
+        onPress={() => navigation.navigate(PAGE_NAME_ROOT.TAB_RESTAURANT)}>
         <Text style={styles.btn}>Navigate to Tab</Text>
       </TouchableHighlight>
       <View style={styles.header}>

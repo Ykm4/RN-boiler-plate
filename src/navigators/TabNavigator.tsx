@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { PAGE_NAME_TAB } from './const/pagename';
 import { NewsTabParamList } from './declaration';
-import { RestaurantWithPrivateRoom } from '../components/pages/RestaurantWithPrivateRoom';
 import { RandomRestaurant } from '../components/pages/RandomRestaurant';
+import { RestaurantWithPrivateRoom } from '../components/pages/RestaurantWithPrivateRoom';
 
 const Tab = createMaterialTopTabNavigator<NewsTabParamList>();
 

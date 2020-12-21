@@ -1,9 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
-import { PAGE_NAMES_HOME } from '../../../const';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { HomeStackParamList } from '../../../declarations';
-import { AppDispatch, RootState, useSelector } from '../../../redux/store';
+import React, { useCallback, useEffect } from 'react';
+import { FlatList, RefreshControl, StyleSheet, View } from 'react-native';
+import { AppDispatch, useSelector } from '../../../redux/store';
 import { useDispatch } from 'react-redux';
 import {
   fetchRestaurant,
@@ -13,11 +10,14 @@ import {
 import { ShopCard, ShopCardType } from '../../organisms/ShopCard';
 import { useRefresh } from './hooks/useRefresh';
 import { gourmetSelector } from '../../../redux/selectors/gourmet';
+import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
+import { NewsTabParamList } from '../../../navigators/declaration';
+import { PAGE_NAME_TAB } from '../../../navigators/const/pagename';
 
 type Props = {
-  navigation: StackNavigationProp<
-    HomeStackParamList,
-    typeof PAGE_NAMES_HOME.NEWS
+  navigation: MaterialTopTabScreenProps<
+    NewsTabParamList,
+    typeof PAGE_NAME_TAB.RANDOM_RESTAURANT
   >;
 };
 
