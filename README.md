@@ -157,11 +157,58 @@ buildscript {
   }
 }
 ```
-
-Lastly, execute the plugin by adding the following to your /android/app/build.gradle file:
+最後に`/android/app/build.gradle`ファイルを下記の通り編集をしてプラグインを実行させる。
 
 ```bash
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services' // <- Add this line
 ```
- 
+
+### iOSセットアップ
+Firebaseコンソールからプロジェクトを作成
+
+- アプリの登録iOS バンドル
+
+Bundle ID: org.reactjs.native.example
+
+Bundle IDはxCodeから参照可能
+
+- 設定ファイルのダウンロード
+
+GoogleService-Info.plistをダウンロードして`/ios/{projectName}`に配置する
+
+- Firebase SDK の追加
+- 初期化コードの追加
+
+### Configure Firebase with iOS credentials
+`/ios/{projectName}/AppDelegate.m`ファイル内に`#import <Firebase.h>`を追加する
+
+```bash
+#import "AppDelegate.h"
+
+#import <React/RCTBridge.h>
+#import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
+
+#import <Firebase.h>
+...
+```
+`/ios/{projectName}/AppDelegate.m`ファイル内の`didFinishLaunchingWithOptions`メソッドを以下のように修正する
+```bash
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ if ([FIRApp defaultApp] == nil) {
+    [FIRApp configure];
+  }
+#ifdef FB_SONARKIT_ENABLED
+  InitializeFlipper(application);
+#endif
+```
+
+### AutoLinking & rebuilding
+
+上記の設定が完了したらReact Native Firebaseライブラリをプロジェクトに紐付けて際ビルドする必要がある。
+
+```bash
+pod install --repo-update
+yarn ios
+```
