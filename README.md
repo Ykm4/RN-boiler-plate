@@ -115,3 +115,53 @@ distributionPath=wrapper/dists
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 ```
+
+## Firebaseの導入
+React Native With Firebase
+[公式Doc](https://rnfirebase.io/)
+
+## Get Started
+`@react-native-firebase/app`は他のFirebaseサービス(FireaStore, FirebaseAnalytics)を使用する前にインストールする必要がある。
+```bash
+yarn add @react-native-firebase/app
+```
+### Androidセットアップ
+FirebaseコンソールでAndroid用のアプリケーションの作成を行う。
+
+Androidパッケージ名は`android/`ディレクトリで確認可能な`applicationId`を登録する必要がある。
+
+`/android/app/src/main/AndroidManifest.xml`
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.rnwithtypescript">
+```
+
+`android/app/build.gradle`
+```java
+defaultConfig {
+        applicationId "com.rnwithtypescript" # アプリケーションID
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+}
+```
+google-services.json をFirebaseコンソールからダウンロードして/android/app/へ配置する。
+### Configure Firebase with Android credentials
+`/android/build.gradle`
+```bash
+buildscript {
+  dependencies {
+    // ... other dependencies
+    classpath 'com.google.gms:google-services:4.3.3'
+    // Add me --- /\
+  }
+}
+```
+
+Lastly, execute the plugin by adding the following to your /android/app/build.gradle file:
+
+```bash
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services' // <- Add this line
+```
+ 
