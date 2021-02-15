@@ -2,7 +2,6 @@ import GourmetServices from '../../../services/gourmet';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { GourmetResultType } from './declaration';
 
-// TODO: logics関数とかに移す？
 export const randomList = [
   'X090',
   'X086',
