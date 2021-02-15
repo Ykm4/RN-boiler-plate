@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { AppDispatch, useSelector } from '../../../redux/store';
 import { useDispatch } from 'react-redux';
 import { fetchShopWithPrivateRoom } from '../../../redux/modules/Gourmet/thunk';
 import { ShopCard, ShopCardType } from '../../organisms/ShopCard';
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
 import { NewsTabParamList } from '../../../navigators/declaration';
-import { PAGE_NAME_TAB } from '../../../navigators/const/pagename';
+import { TAB_NAME } from '../../../navigators/const/pagename';
 
 type Props = {
   navigation: MaterialTopTabScreenProps<
     NewsTabParamList,
-    typeof PAGE_NAME_TAB.RESTAURANT_WITH_PRIVATE_ROOM
+    typeof TAB_NAME.RESTAURANT_WITH_PRIVATE_ROOM
   >;
 };
 

@@ -12,12 +12,12 @@ import { useRefresh } from './hooks/useRefresh';
 import { gourmetSelector } from '../../../redux/selectors/gourmet';
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs';
 import { NewsTabParamList } from '../../../navigators/declaration';
-import { PAGE_NAME_TAB } from '../../../navigators/const/pagename';
+import { TAB_NAME } from '../../../navigators/const/pagename';
 
 type Props = {
   navigation: MaterialTopTabScreenProps<
     NewsTabParamList,
-    typeof PAGE_NAME_TAB.RANDOM_RESTAURANT
+    typeof TAB_NAME.RANDOM_RESTAURANT
   >;
 };
 
