@@ -14,10 +14,12 @@ export function TabNavigator() {
       <Tab.Screen
         name={TAB_NAME.RANDOM_RESTAURANT}
         component={RandomRestaurant}
+        options={{ title: 'お店一覧' }}
       />
       <Tab.Screen
         name={TAB_NAME.RESTAURANT_WITH_PRIVATE_ROOM}
         component={RestaurantWithPrivateRoom}
+        options={{ title: 'お店一覧(個室)' }}
       />
     </Tab.Navigator>
   );
