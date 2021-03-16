@@ -24,7 +24,7 @@ export function Home({ navigation }: Props) {
     <SafeAreaView style={styles.root}>
       <Text>home</Text>
       <TouchableHighlight onPress={handlePress}>
-        <Text style={styles.btn}>お店一覧タブへ遷移</Text>
+        <Text style={styles.btn}>お店一覧タブ遷移</Text>
       </TouchableHighlight>
     </SafeAreaView>
   );
