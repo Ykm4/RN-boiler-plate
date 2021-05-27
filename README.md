@@ -12,20 +12,33 @@ $ brew install watchman
 
 npxコマンドでtemplateを作成する前に`node`と`watchman`を入れる必要がある
 
-※ 公式曰くnodeのversionはnodebrewなどで管理した方が良いみたいだが(nodebrewでの管理方法は割愛)
-
 ```bash
-brew install node
-brew install watchman
+$ brew install watchman
+
+$ brew install nodebrew
+
+$ brew install yarn --ignore-dependencies
+
+$ brew install icu4c
+
+$ nodebrew setup
+
+$ nodebrew install-binary v12.18.2
+
+$ nodebrew use v12.18.2
+
+$ mkdir /usr/local/opt/node
+
+$ ln -s ~/.nodebrew/current/ /usr/local/opt/node/
 ```
 
 ### React Native Command Line Interface
 
-React Native公式のCLIをグローバル環境にインストールするのはおすすめされていない。
+React Native公式のCLIをグローバル環境にインストールするのはおすすめされていません。
 
-そのため公式では`npx`コマンドを用いて最新バージョンのCLIを使用する事をおすすめしている。
+そのため公式では`npx`コマンドを用いて最新バージョンのCLIを使用する事をおすすめします。
 
-> もしも過去にreact-native-cliパッケージをグローバルにインストールした事があるなら、予期せぬ問題を引き起こす可能性があるので削除した方が良い。
+> もしも過去にreact-native-cliパッケージをグローバルにインストールした事があるなら、予期せぬ問題を引き起こす可能性があるので削除した方が良いみたいです。
 
 ## React Native with TypeScript
 
