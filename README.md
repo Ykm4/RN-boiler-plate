@@ -40,14 +40,6 @@ React Native公式のCLIをグローバル環境にインストールするの�
 
 > もしも過去にreact-native-cliパッケージをグローバルにインストールした事があるなら、予期せぬ問題を引き起こす可能性があるので削除した方が良いみたいです。
 
-## React Native with TypeScript
-
-公式がtemplate用のコマンドを用意してくれているので下記のコマンドを叩くだけでボイラープレートが作成される。
-
-```bash
-$ npx react-native init MyApp --template react-native-template-typescript
-```
-
 ## プロジェクトを立ち上げる
 
 インストールが完了したら下記コマンドをターミナルに入力する事でシミューレーターが立ち上がる。
